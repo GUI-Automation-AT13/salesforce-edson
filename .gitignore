@@ -4,7 +4,7 @@
 /target/
 target/
 .settings/
-config.properties
+environmentVariables.properties
 Maven.iml
 UI-Salesforce.iml
 .classpath
