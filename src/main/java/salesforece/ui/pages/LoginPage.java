@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
- * This class return a instance of LoginPage.
+ * This class returns an instance of LoginPage.
  */
 public class LoginPage extends BasePage {
 
@@ -44,6 +44,10 @@ public class LoginPage extends BasePage {
 
     /**
      * Execute the login action.
+     *
+     * @param userName of the name of user
+     * @param password of the password of user
+     * @return an instance of HomePage
      */
     public HomePage loginSuccessful(final String userName, final String password) {
         setUserName(userName);

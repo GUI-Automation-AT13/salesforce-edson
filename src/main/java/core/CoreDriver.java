@@ -37,9 +37,11 @@ public class CoreDriver {
 
     public static void closeDriver() {
         driver.close();
+        driver = null;
     }
 
     public static void quitDriver() {
         driver.quit();
+        driver = null;
     }
 }

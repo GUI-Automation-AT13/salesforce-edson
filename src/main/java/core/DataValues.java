@@ -17,8 +17,8 @@ public class DataValues {
         try {
             ENV_VALUE = read("environmentVariables.properties");
             GET_VALUE = read("config.properties");
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException | NullPointerException e) {
+            throw new RuntimeException("It was not possible to read the properties file", e);
         }
     }
 
@@ -37,7 +37,7 @@ public class DataValues {
         try (InputStream reading = new FileInputStream(file)) {
             properties.load(reading);
         } catch (Exception e) {
-            e.printStackTrace();
+            throw new RuntimeException("It was not possible to read the properties file", e);
         }
         return properties;
     }

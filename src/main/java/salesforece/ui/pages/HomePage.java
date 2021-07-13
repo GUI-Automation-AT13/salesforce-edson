@@ -3,7 +3,7 @@ package salesforece.ui.pages;
 import org.openqa.selenium.WebDriver;
 
 /**
- * This class return a instance of HomePage.
+ * This class returns an instance of HomePage.
  */
 public class HomePage {
     protected WebDriver driver;
