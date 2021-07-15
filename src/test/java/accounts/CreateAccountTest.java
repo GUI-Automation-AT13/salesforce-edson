@@ -1,10 +1,13 @@
 package accounts;
 
 import base.BaseTest;
+import org.testng.annotations.Test;
 import salesforece.ui.pages.HomePage;
 
-import static core.DataValues.obtainEnvVariables;
-
 public class CreateAccountTest extends BaseTest {
-    HomePage homePage = loginPage.loginSuccessful(obtainEnvVariables("USER"), obtainEnvVariables("PASSWORD"));
+    @Test
+    public void login() {
+        HomePage homePage = loginPage.loginSuccessful(envValues.getUser(), envValues.getPassword());
+
+    }
 }
