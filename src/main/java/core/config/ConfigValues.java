@@ -13,7 +13,23 @@ public class ConfigValues {
         this.readFile = new ReadFile(path);
     }
 
+    public String getExplicitWaitValue() {
+        return readFile.getValue("EXPLICIT_WAIT");
+    }
+
     public String getLoginUrl() {
         return readFile.getValue("LOGIN_URL");
+    }
+
+    public String getBaseUrl() {
+        return readFile.getValue("BASE_URL");
+    }
+
+    public String getHomeUrl() {
+        return readFile.getValue("HOME");
+    }
+
+    public String getQuickTextUrl() {
+        return readFile.getValue("QUICK_TEXT");
     }
 }

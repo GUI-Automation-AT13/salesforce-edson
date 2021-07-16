@@ -1,4 +1,4 @@
-package salesforece.ui.pages;
+package salesforce.ui.pages;
 
 import org.openqa.selenium.WebDriver;
 

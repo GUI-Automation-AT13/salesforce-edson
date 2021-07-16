@@ -1,5 +1,7 @@
-package salesforece.ui.pages;
+package salesforce.ui.pages;
 
+import core.config.ConfigValues;
+import core.selenium.WebElementAction;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -10,14 +12,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public abstract class BasePage {
     protected WebDriver driver;
     protected WebDriverWait wait;
+    protected WebElementAction webElementAction;
+    private ConfigValues configValues;
 
     /**
      * This class sets params for WebDriver.
      */
     public BasePage(final WebDriver driver) {
-        final int waitSeconds = 30;
+        configValues = new ConfigValues();
         this.driver = driver;
-        wait = new WebDriverWait(driver, waitSeconds);
+        wait = new WebDriverWait(driver, Long.parseLong(configValues.getExplicitWaitValue()));
+        webElementAction = new WebElementAction(this.driver, wait);
         PageFactory.initElements(driver, this);
         waitForPageLoaded();
     }
