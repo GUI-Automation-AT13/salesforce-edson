@@ -8,7 +8,6 @@ import core.utils.ReadFile;
 public class EnvValues {
     private ReadFile readFile;
     private String path = "environmentVariables.properties";
-    private String path2 = "config.properties";
 
     public EnvValues() {
         this.readFile = new ReadFile(path);

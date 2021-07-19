@@ -1,4 +1,4 @@
-package core.utils;
+package core.utils.date;
 
 import java.text.DateFormat;
 import java.text.ParseException;

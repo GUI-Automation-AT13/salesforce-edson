@@ -1,9 +1,10 @@
-package salesforce.ui.pages;
+package salesforce.ui.pages.quicktext;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import salesforce.ui.pages.BasePage;
 
 /**
  * This class returns an instance of QuickText.
@@ -12,9 +13,6 @@ public class QuickTextPage extends BasePage {
 
     @FindBy(css = ".forceActionLink > div")
     private WebElement newQuickTextBtn;
-
-    @FindBy(css = "input[aria-required=\"true\"]")
-    private WebElement quickTextNameFld;
 
     public QuickTextPage(WebDriver driver) {
         super(driver);
@@ -25,11 +23,8 @@ public class QuickTextPage extends BasePage {
         wait.until(ExpectedConditions.visibilityOf(newQuickTextBtn));
     }
 
-    public void clickNewQuickText() {
+    public NewQuickText clickNewQuickText() {
         webElementAction.clickBtn(newQuickTextBtn);
-    }
-
-    public void setQuickText(String quickText) {
-        webElementAction.setInputFields(quickTextNameFld, quickText);
+        return new NewQuickText(driver);
     }
 }

@@ -3,7 +3,7 @@ package salesforce.ui;
 import core.config.ConfigValues;
 import org.openqa.selenium.WebDriver;
 import salesforce.ui.pages.LoginPage;
-import salesforce.ui.pages.QuickTextPage;
+import salesforce.ui.pages.quicktext.QuickTextPage;
 
 /**
  * Controls navigation of pages.

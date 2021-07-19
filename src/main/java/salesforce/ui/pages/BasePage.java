@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
- * This abstract class is the base for all web pages.
+ * This abstract class is the salesforce.base for all web pages.
  */
 public abstract class BasePage {
     protected WebDriver driver;

@@ -1,4 +1,4 @@
-package base;
+package salesforce.base;
 
 import core.config.ConfigValues;
 import core.config.EnvValues;
@@ -30,7 +30,6 @@ public class BaseTest {
         driver = coreDriver.getWebDriver(DriverManagerType.CHROME);
 
         pageTransporter = new PageTransporter(driver);
-//        driver.get(configValues.getLoginUrl());
     }
 
     @BeforeMethod

@@ -23,7 +23,7 @@ public class WebElementAction {
      * @param webElement type WebElement object.
      * @param text value to be set.
      */
-    public void setInputFields(final WebElement webElement, final String text) {
+    public void setInputFields(WebElement webElement, String text) {
         wait.until(ExpectedConditions.visibilityOf(webElement));
         webElement.clear();
         webElement.sendKeys(text);
@@ -34,8 +34,12 @@ public class WebElementAction {
      *
      * @param webElement type WebElement object.
      */
-    public void clickBtn(final WebElement webElement) {
+    public void clickBtn(WebElement webElement) {
         wait.until(ExpectedConditions.visibilityOf(webElement));
         webElement.click();
+    }
+
+    public String getTextOutput(WebElement webElement) {
+        return webElement.getText();
     }
 }
