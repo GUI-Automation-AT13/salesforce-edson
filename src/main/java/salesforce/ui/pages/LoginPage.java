@@ -1,4 +1,4 @@
-package salesforece.ui.pages;
+package salesforce.ui.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -29,17 +29,17 @@ public class LoginPage extends BasePage {
     }
 
     private LoginPage setUserName(final String userName) {
-        userNameTxtBox.sendKeys(userName);
+        webElementAction.setInputFields(userNameTxtBox, userName);
         return this;
     }
 
     private LoginPage setPassword(final String password) {
-        passwordTxtBox.sendKeys(password);
+        webElementAction.setInputFields(passwordTxtBox, password);
         return this;
     }
 
     private void clickLoginBtn() {
-        loginBtn.click();
+        webElementAction.clickBtn(loginBtn);
     }
 
     /**

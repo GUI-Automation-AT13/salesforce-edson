@@ -1,6 +1,6 @@
 package utils;
 
-import core.utils.ManageDates;
+import core.utils.date.ManageDates;
 import org.testng.annotations.Test;
 
 import java.text.DateFormat;
