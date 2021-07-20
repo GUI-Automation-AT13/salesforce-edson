@@ -7,7 +7,7 @@ import static org.testng.Assert.assertEquals;
 
 public class QuickTextTest extends BaseTest {
 
-    @Test
+    //@Test
     public void testNewQuickTextJustWithParamsNecessary() {
 
         String nameQuickText = "new selenium text";
