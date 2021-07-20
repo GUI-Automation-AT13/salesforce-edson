@@ -20,7 +20,7 @@ public class BaseTest {
     protected PageTransporter pageTransporter;
     protected ToastMessage toastMessage;
 
-    @BeforeClass
+    @BeforeMethod
     public void beforeClass() {
 
         envValues = new EnvValues();
@@ -40,7 +40,7 @@ public class BaseTest {
         loginPage.loginSuccessful(envValues.getUser(), envValues.getPassword());
     }
 
-    @AfterClass
+    @AfterMethod
     public void tearDown() {
         coreDriver.quitDriver();
     }

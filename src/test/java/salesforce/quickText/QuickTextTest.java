@@ -9,6 +9,7 @@ public class QuickTextTest extends BaseTest {
 
     @Test
     public void testNewQuickTextJustWithParamsNecessary() {
+
         String nameQuickText = "new selenium text";
         String messageQuickText = "message for selenium text";
         var quickTextPage = pageTransporter.navigateToQuickTextPage();
