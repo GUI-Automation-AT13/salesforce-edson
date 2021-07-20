@@ -1,7 +1,6 @@
 package salesforce.ui.pages.quicktext;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,8 +25,8 @@ public class BodyQuickText extends BasePage {
 
     private static final String FORM_CONTENT = "//span[contains(text(),'%s')] /../..//span[@class='uiOutputText']";
 
-    public BodyQuickText(WebDriver driver) {
-        super(driver);
+    public BodyQuickText() {
+        super();
     }
 
     @Override

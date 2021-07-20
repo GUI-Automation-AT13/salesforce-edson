@@ -1,7 +1,6 @@
 package salesforce.ui.pages.quicktext;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -36,10 +35,6 @@ public class NewQuickText extends BasePage {
 
     @FindBy(css = "input[checked=\"checked\"]")
     private WebElement checkBtn;
-
-    public NewQuickText(WebDriver driver) {
-        super(driver);
-    }
 
     @Override
     protected void waitForPageLoaded() {
@@ -107,7 +102,7 @@ public class NewQuickText extends BasePage {
 
     public BodyQuickText clickSaveBtn() {
         clickBtnWithCssSelector("Save");
-        return new BodyQuickText(driver);
+        return new BodyQuickText();
     }
 
     private void clickBtnWithCssSelector(String button) {

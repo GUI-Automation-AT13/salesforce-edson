@@ -1,6 +1,7 @@
 package salesforce.ui.pages;
 
-import core.config.ConfigValues;
+import static core.selenium.MyWebDriverManager.getWebDriverManager;
+
 import core.selenium.WebElementAction;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -13,15 +14,13 @@ public abstract class BasePage {
     protected WebDriver driver;
     protected WebDriverWait wait;
     protected WebElementAction webElementAction;
-    private ConfigValues configValues;
 
     /**
      * This class sets params for WebDriver.
      */
-    public BasePage(final WebDriver driver) {
-        configValues = new ConfigValues();
-        this.driver = driver;
-        wait = new WebDriverWait(driver, Long.parseLong(configValues.getExplicitWaitValue()));
+    public BasePage() {
+        driver = getWebDriverManager().getDriver();
+        wait = getWebDriverManager().getWebDriverWait();
         webElementAction = new WebElementAction(this.driver, wait);
         PageFactory.initElements(driver, this);
         waitForPageLoaded();

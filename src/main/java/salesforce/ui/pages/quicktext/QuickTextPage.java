@@ -1,6 +1,5 @@
 package salesforce.ui.pages.quicktext;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,8 +13,8 @@ public class QuickTextPage extends BasePage {
     @FindBy(css = ".forceActionLink > div")
     private WebElement newQuickTextBtn;
 
-    public QuickTextPage(WebDriver driver) {
-        super(driver);
+    public QuickTextPage() {
+        super();
     }
 
     @Override
@@ -25,6 +24,6 @@ public class QuickTextPage extends BasePage {
 
     public NewQuickText clickNewQuickText() {
         webElementAction.clickBtn(newQuickTextBtn);
-        return new NewQuickText(driver);
+        return new NewQuickText();
     }
 }

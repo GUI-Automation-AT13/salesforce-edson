@@ -17,6 +17,10 @@ public class ConfigValues {
         return readFile.getValue("EXPLICIT_WAIT");
     }
 
+    public String getImplicitWaitTime() {
+        return readFile.getValue("EXPLICIT_WAIT");
+    }
+
     public String getLoginUrl() {
         return readFile.getValue("LOGIN_URL");
     }
@@ -31,5 +35,9 @@ public class ConfigValues {
 
     public String getQuickTextUrl() {
         return readFile.getValue("QUICK_TEXT");
+    }
+
+    public String getBrowser() {
+        return readFile.getValue("BROWSER");
     }
 }
