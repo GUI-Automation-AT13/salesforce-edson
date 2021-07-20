@@ -31,9 +31,9 @@ public class BaseTest {
         driver = coreDriver.getWebDriver(DriverManagerType.CHROME);
 
         pageTransporter = new PageTransporter(driver);
+        login();
     }
 
-    @BeforeClass
     public void login() {
         pageTransporter.navigateToLoginPage();
         loginPage = new LoginPage(driver);
