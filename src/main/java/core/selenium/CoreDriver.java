@@ -2,7 +2,9 @@ package core.selenium;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.github.bonigarcia.wdm.config.DriverManagerType;
+
 import java.lang.reflect.InvocationTargetException;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -19,17 +21,17 @@ public class CoreDriver {
      * This class return a instance of WebDriver.
      */
     public WebDriver getWebDriver(DriverManagerType driverManagerType) {
-        if (driver == null) {
-            WebDriverManager.getInstance(driverManagerType).setup();
-            Class<?> driverClass;
-            try {
-                driverClass = Class.forName(driverManagerType.browserClass());
-                driver = (WebDriver) driverClass.getDeclaredConstructor().newInstance();
-            } catch (ClassNotFoundException | InvocationTargetException
-                    | InstantiationException | IllegalAccessException | NoSuchMethodException e) {
-                throw new RuntimeException("It was not possible to create a WebDriver Object", e);
-            }
+//        if (driver == null) {
+        WebDriverManager.getInstance(driverManagerType).setup();
+        Class<?> driverClass;
+        try {
+            driverClass = Class.forName(driverManagerType.browserClass());
+            driver = (WebDriver) driverClass.getDeclaredConstructor().newInstance();
+        } catch (ClassNotFoundException | InvocationTargetException
+                | InstantiationException | IllegalAccessException | NoSuchMethodException e) {
+            throw new RuntimeException("It was not possible to create a WebDriver Object", e);
         }
+//        }
         driver.manage().window().maximize();
         return driver;
     }

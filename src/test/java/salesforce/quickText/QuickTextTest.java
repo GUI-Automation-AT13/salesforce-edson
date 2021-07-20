@@ -7,7 +7,7 @@ import static org.testng.Assert.assertEquals;
 
 public class QuickTextTest extends BaseTest {
 
-    //@Test
+    @Test
     public void testNewQuickTextJustWithParamsNecessary() {
 
         String nameQuickText = "new selenium text";
@@ -22,7 +22,7 @@ public class QuickTextTest extends BaseTest {
         assertEquals(bodyQuickText.getFormName(), nameQuickText, "Name Quick Text is not same");
     }
 
-    //@Test
+    @Test
     public void testNewQuickTextWithAllParams() {
         String nameQuickText = "new selenium text 7";
         String messageQuickText = "message for selenium text";
