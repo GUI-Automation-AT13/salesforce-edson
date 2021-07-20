@@ -9,6 +9,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import salesforce.ui.PageTransporter;
+import salesforce.ui.ToastMessage;
 import salesforce.ui.pages.LoginPage;
 
 public class BaseTest {
@@ -19,12 +20,14 @@ public class BaseTest {
     protected ConfigValues configValues;
     protected EnvValues envValues;
     protected PageTransporter pageTransporter;
+    protected ToastMessage toastMessage;
 
     @BeforeClass
     public void beforeClass() {
 
         envValues = new EnvValues();
         configValues = new ConfigValues();
+        toastMessage = new ToastMessage();
 
         coreDriver = new CoreDriver();
         driver = coreDriver.getWebDriver(DriverManagerType.CHROME);
