@@ -1,4 +1,4 @@
-package core.utils.date;
+package core.utils;
 
 /**
  * Enum for Calendar object.

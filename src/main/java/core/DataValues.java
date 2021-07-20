@@ -1,4 +1,4 @@
-package core.utils;
+package core;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -9,20 +9,16 @@ import java.util.Properties;
 /**
  * This class reads a properties file.
  */
-public class ReadFile {
-    private Properties propertiesFile = new Properties();
+public class DataValues {
+    public static Properties ENV_VALUE = new Properties();
+    public static Properties GET_VALUE = new Properties();
 
-    /**
-     * Read a file.
-     *
-     * @param path of the file.
-     */
-    public ReadFile(String path) {
+    static {
         try {
-            propertiesFile = read(path);
+            ENV_VALUE = read("environmentVariables.properties");
+            GET_VALUE = read("config.properties");
         } catch (IOException | NullPointerException e) {
             throw new RuntimeException("It was not possible to read the properties file", e);
-
         }
     }
 
@@ -31,7 +27,7 @@ public class ReadFile {
      *
      * @return the read properties.
      */
-    private Properties read(final String path) throws IOException {
+    public static Properties read(final String path) throws IOException {
         Properties properties = new Properties();
         File file = new File(path);
 
@@ -52,9 +48,9 @@ public class ReadFile {
      * @param variables is the value to be obtained from the environment variables
      * @return the environment value
      */
-    public String getValue(final String variables) {
-        if (propertiesFile.getProperty(variables) != null) {
-            return propertiesFile.getProperty(variables);
+    public static String obtainEnvVariables(final String variables) {
+        if (ENV_VALUE.getProperty(variables) != null) {
+            return ENV_VALUE.getProperty(variables);
         }
         return System.getenv(variables);
     }
