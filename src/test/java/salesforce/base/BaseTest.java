@@ -5,9 +5,7 @@ import core.config.EnvValues;
 import core.selenium.CoreDriver;
 import io.github.bonigarcia.wdm.config.DriverManagerType;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.*;
 import salesforce.ui.PageTransporter;
 import salesforce.ui.ToastMessage;
 import salesforce.ui.pages.LoginPage;
@@ -35,7 +33,7 @@ public class BaseTest {
         pageTransporter = new PageTransporter(driver);
     }
 
-    @BeforeMethod
+    @BeforeClass
     public void login() {
         pageTransporter.navigateToLoginPage();
         loginPage = new LoginPage(driver);
