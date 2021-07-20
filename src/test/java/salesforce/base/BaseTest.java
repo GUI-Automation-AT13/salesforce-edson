@@ -25,6 +25,12 @@ public class BaseTest {
 
         envValues = new EnvValues();
         configValues = new ConfigValues();
+        System.out.println("prints..............");
+        System.out.println(envValues.getUser());
+        System.out.println(envValues.getPassword());
+        System.out.println(configValues.getHomeUrl());
+        System.out.println(configValues.getExplicitWaitValue());
+        System.out.println("end-----------");
         toastMessage = new ToastMessage();
 
         coreDriver = new CoreDriver();
