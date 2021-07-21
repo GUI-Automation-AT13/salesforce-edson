@@ -19,7 +19,6 @@ public class ChromeBrowser implements Ibrowser {
         chromeOptions.addArguments("--disable-notifications");
         chromeOptions.addArguments("--no-sandbox");
         chromeOptions.addArguments("--disable-dev-shm-usage");
-        chromeOptions.addArguments("--headless");
     }
 
     /**

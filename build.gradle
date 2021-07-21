@@ -42,5 +42,4 @@ checkstyleMain {
 checkstyleTest {
     source = 'src/main/java'
 }
-check.dependsOn build
 test.finalizedBy("checkstyleMain")
