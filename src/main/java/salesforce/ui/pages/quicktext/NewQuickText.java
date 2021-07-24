@@ -11,29 +11,29 @@ import salesforce.ui.pages.BasePage;
  */
 public class NewQuickText extends BasePage {
 
-    private static final String COMBO_BOX = "//span[text() ='%s']/../..//a[@role='button']";
+    private static final String COMBO_BOX = "//span[text() ='%s']//..//..//a[@role='button']";
     private static final String CHANNEL_XPATH = "//select //option[contains(@value,'%s')]";
     private static final String BTN_CSS = "button[title = '%s']";
 
-    @FindBy(css = "input[aria-required=\"true\"]")
+    @FindBy(css = "input[aria-required='true']")
     private WebElement nameFld;
 
     @FindBy(id = "quickTextMessageInputTextArea")
     private WebElement messageFld;
 
-    @FindBy(css = "button[title = \"Save\"]")
+    @FindBy(css = "button[title = 'Save']")
     private WebElement saveBtn;
 
-    @FindBy(css = "div[class=\"messageFieldContainer\"] .select[aria-required=\"false\"]")
+    @FindBy(css = "div[class='messageFieldContainer'] .select[aria-required='false']")
     private WebElement fieldComboBox;
 
-    @FindBy(css = "[class=\"buttonCol\"] [class]")
+    @FindBy(css = "[class='buttonCol'] [class]")
     private WebElement insertBtn;
 
-    @FindBy(xpath = "//div[contains(@class,\"forceInputPicklist\")] //a[contains(text(), \"Greetings\")]")
+    @FindBy(xpath = "//div[contains(@class,'forceInputPicklist')] //a[contains(text(), 'Greetings')]")
     private WebElement categoryComboBox;
 
-    @FindBy(css = "input[checked=\"checked\"]")
+    @FindBy(css = "input[checked='checked']")
     private WebElement checkBtn;
 
     @Override
@@ -73,11 +73,22 @@ public class NewQuickText extends BasePage {
         return this;
     }
 
+    /**
+     * Clicks in Insert Button.
+     *
+     * @return this object.
+     */
     private NewQuickText clickInsertBtn() {
         webElementAction.clickBtn(insertBtn);
         return this;
     }
 
+    /**
+     * Sets a text in the message.
+     *
+     * @param quickText String withe the value to be set.
+     * @return this object.
+     */
     public NewQuickText setMessage(String quickText) {
         webElementAction.setInputFieldsWithoutClear(messageFld, quickText);
         return this;
@@ -95,16 +106,31 @@ public class NewQuickText extends BasePage {
         return this;
     }
 
+    /**
+     * Clicks Check Button.
+     *
+     * @return this object.
+     */
     public NewQuickText clickCheckBtn() {
         webElementAction.clickBtn(checkBtn);
         return this;
     }
 
+    /**
+     * Clicks Save Button.
+     *
+     * @return this object.
+     */
     public BodyQuickText clickSaveBtn() {
         clickBtnWithCssSelector("Save");
         return new BodyQuickText();
     }
 
+    /**
+     * Clicks in selector option.
+     *
+     * @param button a String withe value to be click.
+     */
     private void clickBtnWithCssSelector(String button) {
         webElementAction.clickBtn(driver.findElement(By.cssSelector(String.format(BTN_CSS, button))));
     }

@@ -23,8 +23,8 @@ public class QuickTextTest extends BaseTest {
 
     @Test
     public void testNewQuickTextWithAllParams() {
-        String nameQuickText = "new selenium text 7";
-        String messageQuickText = "message for selenium text";
+        String nameQuickText = "New name selenium";
+        String messageQuickText = "Message for quick text";
 
         String relatedToOption = "Account";
         String fieldOption = "Account Number";

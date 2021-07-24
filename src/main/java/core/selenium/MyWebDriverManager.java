@@ -30,23 +30,38 @@ public final class MyWebDriverManager {
         return myWebDriverManager;
     }
 
+    /**
+     * Init the values for the Web driver.
+     */
     private void initialize() {
         driver = new BrowserFactory().getWebDriver(webDriverConfig.getBrowser());
         driver.manage().window().maximize();
         driver.manage().timeouts()
                 .implicitlyWait(webDriverConfig.getImplicitWaitTime(), TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, webDriverConfig.getExplicitWaitTime());
-
     }
 
+    /**
+     * Gets a driver.
+     *
+     * @return a driver object.
+     */
     public WebDriver getDriver() {
         return driver;
     }
 
+    /**
+     * Gets a driver wait.
+     *
+     * @return a driver wait object
+     */
     public WebDriverWait getWebDriverWait() {
         return wait;
     }
 
+    /**
+     * Sets as a null the driver.
+     */
     public void quitDriver() {
         driver.quit();
         myWebDriverManager = null;

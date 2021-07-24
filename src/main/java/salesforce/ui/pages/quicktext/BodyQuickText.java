@@ -17,32 +17,40 @@ public class BodyQuickText extends BasePage {
     @FindBy(css = "[class='slds-media__body'] span[class='uiOutputText']")
     private WebElement nameTitle;
 
-    @FindBy(css = ".slds-grid:nth-child(1) > .slds-col > .slds-form-element .uiOutputText")
-    private WebElement formName;
-
     @FindBy(xpath = "//span[contains(@class,'toastMessage')]")
     private WebElement toastMessage;
 
     private static final String FORM_CONTENT = "//span[contains(text(),'%s')] /../..//span[@class='uiOutputText']";
-
-    public BodyQuickText() {
-        super();
-    }
 
     @Override
     protected void waitForPageLoaded() {
         wait.until(ExpectedConditions.visibilityOf(entityNameTitle));
     }
 
+    /**
+     * Gets a title of the page.
+     *
+     * @return a String with the value.
+     */
     public String getTitle() {
         return webElementAction.getTextOutput(nameTitle);
     }
 
+    /**
+     * Gets the param name of the form.
+     *
+     * @return a String with the value.
+     */
     public String getFormName() {
         return webElementAction.getTextOutput(
                 driver.findElement(By.xpath(String.format(FORM_CONTENT, "Quick Text Name"))));
     }
 
+    /**
+     * Gets the message of the popup.
+     *
+     * @return a String with the value.
+     */
     public String getToastMessage() {
         return webElementAction.getTextOutput(toastMessage);
     }
