@@ -5,7 +5,6 @@
 target/
 .settings/
 environmentVariables.properties
-Maven.iml
 UI-Salesforce.iml
 .classpath
 .project

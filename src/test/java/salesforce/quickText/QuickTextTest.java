@@ -13,9 +13,39 @@ public class QuickTextTest extends BaseTest {
         String messageQuickText = "message for selenium text";
         var quickTextPage = pageTransporter.navigateToQuickTextPage();
         var formNewQuickText = quickTextPage.clickNewQuickText();
-        formNewQuickText.setName(nameQuickText);
-        formNewQuickText.setMessage(messageQuickText);
-        var bodyQuickText = formNewQuickText.clickSaveBtn();
-        assertEquals(bodyQuickText.getTextName(), nameQuickText, "Name Quick Text is not same");
+        var bodyQuickText = formNewQuickText.setName(nameQuickText)
+                .setMessage(messageQuickText)
+                .clickSaveBtn();
+        assertEquals(bodyQuickText.getToastMessage(), toastMessage.quickTextSuccessfulCreated(nameQuickText), "Name Quick Text is not created");
+        assertEquals(bodyQuickText.getTitle(), nameQuickText, "Title Name Quick Text is not same");
+        assertEquals(bodyQuickText.getFormName(), nameQuickText, "Name Quick Text is not same");
+    }
+
+    @Test
+    public void testNewQuickTextWithAllParams() {
+        String nameQuickText = "New name selenium";
+        String messageQuickText = "Message for quick text";
+
+        String relatedToOption = "Account";
+        String fieldOption = "Account Number";
+
+        String categoryComboBox = "Category";
+        String categoryOption = "FAQ";
+
+        String channel = "Phone";
+
+        var quickTextPage = pageTransporter.navigateToQuickTextPage();
+        var formNewQuickText = quickTextPage.clickNewQuickText();
+        var bodyQuickText = formNewQuickText.setName(nameQuickText)
+                .insertMergeField(relatedToOption, fieldOption)
+                .setMessage(messageQuickText)
+                .chooseComboBoxOption(categoryComboBox, categoryOption)
+                .chooseChannel(channel)
+                .clickCheckBtn()
+                .clickSaveBtn();
+
+        assertEquals(bodyQuickText.getToastMessage(), toastMessage.quickTextSuccessfulCreated(nameQuickText), "Name Quick Text is not created");
+        assertEquals(bodyQuickText.getTitle(), nameQuickText, "Title Name Quick Text is not same");
+        assertEquals(bodyQuickText.getFormName(), nameQuickText, "Name Quick Text is not same");
     }
 }
