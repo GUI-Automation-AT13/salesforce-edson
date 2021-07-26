@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+    id 'checkstyle'
+    id 'info.solidsoft.pitest' version '1.5.1'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+    implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '4.4.3'
+    testImplementation group: 'org.testng', name: 'testng', version: '7.4.0'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.12.4'
+    implementation group: 'org.pitest', name: 'pitest', version: '1.6.7'
+}
+pitest {
+    testPlugin = 'testng'
+    targetClasses = ['core.utils.ManageDates']
+    targetTests = ['utils.DateTest']
+    threads = 4
+    outputFormats = ['XML', 'HTML']
+}
+
+test {
+    useTestNG()
+}
+
+checkstyle {
+    toolVersion '8.44'
+    configFile file('config/checkstyle/checkstyle.xml')
+    checkstyleMain.source = "src/main/"
+    checkstyleMain.excludes = ["**/src/test/**"]
+}
+checkstyleMain {
+    source = 'src/main/java'
+}
+checkstyleTest {
+    source = 'src/main/java'
+}
+test.finalizedBy("checkstyleMain")
