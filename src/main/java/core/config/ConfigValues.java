@@ -68,6 +68,15 @@ public class ConfigValues {
     }
 
     /**
+     * Gets value of Quick Text feature URL.
+     *
+     * @return a String with the value.
+     */
+    public String getGenericEndPointUrl() {
+        return readFile.getValue("GENERIC_END_POINT_URL");
+    }
+
+    /**
      * Gets value of Browser selected.
      *
      * @return a String with the value.

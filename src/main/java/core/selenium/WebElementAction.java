@@ -70,4 +70,14 @@ public class WebElementAction {
     public String getTextOutput(WebElement webElement) {
         return webElement.getText();
     }
+
+    /**
+     * Gets a attribute value of the WebElement.
+     *
+     * @param webElement type WebElement object.
+     * @return a String with the value.
+     */
+    public String getAttribute(WebElement webElement, String attribute) {
+        return webElement.getAttribute(attribute);
+    }
 }
