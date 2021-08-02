@@ -19,7 +19,6 @@ public class CreateAssetSteps {
     protected QuickTextPage quickTextPage;
     QuickText quickText;
     DateString nowDate = new DateString();
-    String newNameQuickText;
 
     private BaseUtil base;
 
@@ -44,8 +43,7 @@ public class CreateAssetSteps {
 
         quickText = ToEntity.convert(table, QuickText.class);
 
-        newNameQuickText = quickText.getName() + nowDate.dateToString();
-        quickText.setName(newNameQuickText);
+        quickText.setName(quickText.getName() + nowDate.dateToString());
 
         base.bodyQuickText = formNewQuickText.createQuickText(table.keySet(), quickText);
     }
@@ -86,6 +84,6 @@ public class CreateAssetSteps {
     @And("Validate the quickText in the quickText Home")
     public void ValidateQuickTextHomeMatches() {
         var quickTextPage = base.pageTransporter.navigateToQuickTextPage();
-        base.softAssert.assertEquals(quickTextPage.getAnNameOfContent(newNameQuickText), newNameQuickText, "Name of the quick text home is not same");
+        base.softAssert.assertEquals(quickTextPage.getAnNameOfContent(quickText.getName()), quickText.getName(), "Name of the quick text home is not same");
     }
 }
