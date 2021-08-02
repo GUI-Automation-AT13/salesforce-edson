@@ -25,4 +25,7 @@ public class PageTransporter {
         return new QuickTextPage();
     }
 
+    public void navigateToAnyPage(final String endpoint) {
+        goToUrl(configValues.getBaseUrl().concat(String.format(configValues.getQuickTextUrl(), endpoint)));
+    }
 }

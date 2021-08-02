@@ -1,9 +1,13 @@
 package salesforce.ui.pages.quicktext;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import salesforce.ui.entity.QuickText;
 import salesforce.ui.pages.BasePage;
 
 /**
@@ -50,7 +54,7 @@ public class NewQuickText extends BasePage {
      * Insert two options for Message.
      *
      * @param relatedTo option for Related To Combo Box.
-     * @param field option for Field Combo Box.
+     * @param field     option for Field Combo Box.
      * @return this object.
      */
     public NewQuickText insertMergeField(String relatedTo, String field) {
@@ -64,7 +68,7 @@ public class NewQuickText extends BasePage {
      * Choose a option for any Combo box.
      *
      * @param comboBox string to choose a specific Combo Box.
-     * @param option Option to choose.
+     * @param option   Option to choose.
      * @return this object.
      */
     public NewQuickText chooseComboBoxOption(String comboBox, String option) {
@@ -133,5 +137,23 @@ public class NewQuickText extends BasePage {
      */
     private void clickBtnWithCssSelector(String button) {
         webElementAction.clickBtn(driver.findElement(By.cssSelector(String.format(BTN_CSS, button))));
+    }
+
+    /**
+     * Sets NewQuickText webElement.
+     *
+     * @return a BodyQuickText page.
+     */
+    public BodyQuickText createQuickText(Set<String> fields, QuickText quickText) {
+        Map<String, Runnable> strategyMap = new HashMap<>();
+        strategyMap.put("Name", () -> setName(quickText.getName()));
+        strategyMap.put("Related To", () -> chooseComboBoxOption("Related To", quickText.getRelatedTo()));
+        strategyMap.put("Field", () -> chooseComboBoxOption("Field", quickText.getField()).clickInsertBtn());
+        strategyMap.put("Message", () -> setMessage(quickText.getMessage()));
+        strategyMap.put("Category", () -> chooseComboBoxOption("Category", quickText.getCategory()));
+        strategyMap.put("Channel", () -> chooseChannel(quickText.getChannel()));
+
+        fields.forEach(field -> strategyMap.get(field).run());
+        return clickSaveBtn();
     }
 }
