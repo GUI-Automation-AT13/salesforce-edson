@@ -27,17 +27,17 @@ public class CreateAssetSteps {
         this.base = base;
     }
 
-    @Given("^I login to salesforce site as an? (.*?) user$")
-    public void iLoginToSalesforceSite(final String userType) {
+    @Given("Login to salesforce site")
+    public void iLoginToSalesforceSite() {
         base.loginPage.loginSuccessful(envValues.getUser(), envValues.getPassword());
     }
 
-    @And("^I navigate to (.*?) page$")
+    @And("Navigate to (.*?) page$")
     public void iNavigateToQuickTextPage(final String endpoint) {
         base.pageTransporter.navigateToAnyPage(endpoint);
     }
 
-    @When("I create a new quickText with fields")
+    @When("Create a new quickText with fields")
     public void iCreateANewQuickTextWithFields(Map<String, String> table) throws JsonProcessingException {
         quickTextPage = new QuickTextPage();
         var formNewQuickText = quickTextPage.clickNewQuickText();

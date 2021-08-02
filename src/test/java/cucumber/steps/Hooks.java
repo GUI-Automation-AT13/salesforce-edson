@@ -18,7 +18,6 @@ public class Hooks {
 
     @Before
     public void init() {
-        base.driver = getWebDriverManager().getDriver();
         base.pageTransporter = new PageTransporter();
         base.loginPage = base.pageTransporter.navigateToLoginPage();
         base.toastMessage = new ToastMessage();
@@ -26,8 +25,12 @@ public class Hooks {
     }
 
     @After
-    public void tearDown() {
+    public void AssertAll() {
         base.softAssert.assertAll();
+    }
+
+    @After
+    public void tearDown() {
         getWebDriverManager().quitDriver();
     }
 }

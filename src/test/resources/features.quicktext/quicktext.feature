@@ -1,9 +1,9 @@
 Feature: Create an QuickText
 
   Scenario: Create an quickText with required fields
-    Given I login to salesforce site as a developer user
-    And I navigate to QuickText page
-    When I create a new quickText with fields
+    Given Login to salesforce site
+    And Navigate to QuickText page
+    When Create a new quickText with fields
       | Name    | Quick text from cucumber         |
       | Message | Message quick text from cucumber |
     Then Validate successful message of creating that is display
@@ -12,9 +12,9 @@ Feature: Create an QuickText
     And Validate the quickText in the quickText Home
 
   Scenario: Create an quickText with all fields
-    Given I login to salesforce site as an developer user
-    And I navigate to QuickText page
-    When I create a new quickText with fields
+    Given Login to salesforce site
+    And Navigate to QuickText page
+    When Create a new quickText with fields
       | Name       | Quick text from cucumber         |
       | Related To | Account                          |
       | Field      | Account Number                   |
